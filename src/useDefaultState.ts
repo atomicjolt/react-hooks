@@ -1,21 +1,17 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 
 type DefaultReturn<T> = [state: T, setState: (newState: T) => void, revert: () => void];
 
-interface DefaultState<T> {
-  default: T;
-  current: T;
-}
+/** `setState` wrapper to "reset" your state back to default values
+ * @param initialState - The initial state to store
+ * @returns an array of:
+ *  - the state value
+ *  - a function to update the state
+ *  - a function to revert the state back to it's initial value
+ */
+export function useDefaultState<T>(initialState: T): DefaultReturn<T> {
+  const defaultState = useRef(initialState).current;
+  const [state, setState] = useState<T>(initialState);
 
-export function useDefaultState<T>(data: T): DefaultReturn<T> {
-  const [state, setState] = useState<DefaultState<T>>({
-    default: data,
-    current: data,
-  });
-
-  const updateCurrent = (newState: T) => setState({ ...state, current: newState });
-
-  const reset = () => setState({ ...state, current: state.default });
-
-  return [state.current, updateCurrent, reset];
+  return [state, setState, () => setState(defaultState)];
 }
