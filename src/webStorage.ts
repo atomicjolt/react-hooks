@@ -24,7 +24,7 @@ export function makeStorageHook<Key = string, Stored = string>(storage: StorageI
     key: Key,
     options: Partial<OptionalParams<T, Stored>> = {},
   ): [state: T, setState: Dispatch<T>, remove: () => void] => {
-    const { prepare, parse }: OptionalParams<T, Stored> = { ...DEFAULTS, ...options };
+    const { prepare, parse }: OptionalParams<T, Stored> = { ...DEFAULTS, ...options } as OptionalParams<T, Stored>;
 
     const [state, setState] = useState<T>(() => {
       const cached = storage.getItem(key);
