@@ -43,10 +43,7 @@ export default function makeGlobalStateHook<S>(initialState: S) {
   return function useGlobalState(): [state: S, setter: (state: S) => void] {
     const [state, setState] = useState(store.state);
 
-    useEffect(() => {
-      const unsub = store.subscribe((state) => setState(state));
-      return unsub;
-    });
+    useEffect(() => store.subscribe((state) => setState(state)));
 
     return [state, store.updateState];
   };
