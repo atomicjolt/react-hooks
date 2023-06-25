@@ -12,7 +12,7 @@ type UseValidatedStateReturn<T, E> = [state: T, error: E | null, setState: (newS
  *  - The current error value (defaults to null)
  *  - state setter function
  */
-export default function useValidatedState<T, E = string>(
+export function useValidatedState<T, E = string>(
   intialState: T,
   validator: (newState: T) => void | E,
 ): UseValidatedStateReturn<T, E> {

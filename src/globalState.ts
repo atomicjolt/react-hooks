@@ -37,7 +37,7 @@ class Store<S> {
   };
 }
 
-export default function makeGlobalStateHook<S>(initialState: S) {
+export function makeGlobalStateHook<S>(initialState: S) {
   const store = new Store<S>(initialState);
 
   return function useGlobalState(): [state: S, setter: (state: S) => void] {

@@ -1,5 +1,5 @@
 import { useBool } from '../src';
-import { renderHook, act } from '@testing-library/react-hooks';
+import { renderHook, act } from '@testing-library/react';
 
 describe('useBool', () => {
   test('uses false as a default', () => {

@@ -1,4 +1,4 @@
-import { renderHook, act } from '@testing-library/react-hooks';
+import { renderHook, act } from '@testing-library/react';
 import { makeStorageHook } from '../src';
 
 class MockedStorage {
@@ -61,7 +61,11 @@ describe('Web Storage hooks', () => {
       return value.toString();
     });
 
-    const parse = jest.fn((value: string) => {
+    const parse = jest.fn((value: string | null) => {
+      if (value === null) {
+        return 0;
+      }
+
       return parseInt(value, 10);
     });
 

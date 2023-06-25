@@ -1,5 +1,5 @@
 import { useValidatedState } from '../src';
-import { renderHook, act } from '@testing-library/react-hooks';
+import { renderHook, act } from '@testing-library/react';
 
 const isEven = (next: number) => {
   if (next % 2 !== 0) {

@@ -10,7 +10,7 @@ type UseBooleanReturn = [value: boolean, toggle: () => void, setTrue: () => void
  *  - a function to set the boolean value to `true`
  *  - a function to set the boolean value to `false`
  */
-export default function useBool(intialState: boolean = false): UseBooleanReturn {
+export function useBool(intialState: boolean = false): UseBooleanReturn {
   const [bool, setBool] = useState(intialState);
 
   const toggle = useCallback(() => setBool((val) => !val), []);
