@@ -1,3 +1,4 @@
+import { expect, test, describe } from 'vitest';
 import { useValidatedState } from '../src';
 import { renderHook, act } from '@testing-library/react';
 

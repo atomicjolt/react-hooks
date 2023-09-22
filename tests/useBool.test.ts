@@ -1,4 +1,5 @@
-import { useBool } from '../src';
+import { expect, test, describe } from 'vitest';
+import { useBool } from '../src/useBool';
 import { renderHook, act } from '@testing-library/react';
 
 describe('useBool', () => {
