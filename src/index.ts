@@ -3,7 +3,7 @@ export { useValidatedState } from './useValidatedState';
 export { useDefaultState } from './useDefaultState';
 export { useLocalStorage, useSessionStorage, makeStorageHook } from './webStorage';
 export { makeContext } from './context';
-export { makeGlobalStateHook } from './globalState';
+export { createStoreHook } from './store';
 export { useRenderCount } from './lifecycle/useRenderCount';
 export { useRender } from './lifecycle/useRender';
 export { useUnmount } from './lifecycle/useUnmount';

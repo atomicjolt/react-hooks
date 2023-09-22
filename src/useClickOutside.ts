@@ -22,5 +22,5 @@ export default function useClickOutside(ref: RefObject<HTMLElement>, callback: (
   useEffect(() => {
     document.addEventListener('click', onClick);
     return () => document.removeEventListener('click', onClick);
-  });
+  }, []);
 }

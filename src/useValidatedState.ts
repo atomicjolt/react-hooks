@@ -1,6 +1,7 @@
 import { useState } from 'react';
+import { ValueUpdate, resolveValue } from './utils';
 
-type UseValidatedStateReturn<T, E> = [state: T, error: E | null, setState: (newState: T) => void];
+type UseValidatedStateReturn<T, E> = [state: T, error: E | null, setState: (newState: ValueUpdate<T>) => void];
 
 /** A `setState` wrapper that performs some validation on any new state values
  * @param intialState - The initial state value to store
@@ -20,12 +21,14 @@ export function useValidatedState<T, E = string>(
   const [state, setState] = useState<T>(intialState);
   const [error, setError] = useState<E | null>(null);
 
-  const setStateWrapper = (newState: T) => {
-    const result = validator(newState);
+  const setStateWrapper = (newState: ValueUpdate<T>) => {
+    const newStateValue = resolveValue(state, newState);
+    const result = validator(newStateValue);
+
     if (result) {
       setError(result);
     } else {
-      setState(newState);
+      setState(newStateValue);
     }
   };
 

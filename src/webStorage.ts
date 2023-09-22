@@ -45,8 +45,8 @@ export function makeStorageHook<Key = string, Stored = string>(storage: StorageI
   };
 }
 
-/** Control a `localStorage` value as a React state value. Setting the value will also write it to `localStorage`
- * upon a reload, if the `key` exisits in `localStorage`, the value will be loaded and used as the initial State, instead of
+/** Control a `localStorage` value as a React state value. Setting the value will also write it to `localStorage`.
+ * Upon a reload, if the `key` exisits in `localStorage`, the value will be loaded and used as the initial state, instead of
  * `initialState`.
  * @param initialState - initial state value
  * @param key - a unique key to set and access the value with

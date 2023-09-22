@@ -32,6 +32,8 @@
   "scripts": {
     "build": "tsc",
     "fmt": "prettier --write \"src/**/*.ts\"",
-    "test": "vitest run"
+    "test": "vitest run",
+    "docs:build": "typedoc --out docs src",
+    "docs:deploy": "gh-pages -d docs --no-history"
   }
 }
