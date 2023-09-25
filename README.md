@@ -5,11 +5,11 @@ A Set of React Hooks for Atomic Jolt
 ## Installation
 
 ```
-npm install --save @atomic-jolt/hooks
+npm install --save @atomicjolt/hooks
 ```
 
 ```
-yarn add @atomic-jolt/hooks
+yarn add @atomicjolt/hooks
 ```
 
 ## Documentation
@@ -19,7 +19,7 @@ yarn add @atomic-jolt/hooks
 ## Usage
 
 ```js
-import { useBool } from '@atomic-jolt/hooks';
+import { useBool } from '@atomicjolt/hooks';
 
 const Component = () => {
   const [bool, toggle] = useBool(false);
