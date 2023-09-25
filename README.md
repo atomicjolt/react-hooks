@@ -12,6 +12,9 @@ npm install --save @atomic-jolt/hooks
 yarn add @atomic-jolt/hooks
 ```
 
+## Documentation
+
+[Docs can be found here](https://atomicjolt.github.io/react-hooks/)
 
 ## Usage
 
