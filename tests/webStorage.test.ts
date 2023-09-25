@@ -1,4 +1,5 @@
-import { renderHook, act } from '@testing-library/react-hooks';
+import { expect, test, describe, afterEach, vi } from 'vitest';
+import { renderHook, act } from '@testing-library/react';
 import { makeStorageHook } from '../src';
 
 class MockedStorage {
@@ -57,11 +58,15 @@ describe('Web Storage hooks', () => {
   });
 
   test('prepare and parse options', () => {
-    const prepare = jest.fn((value: number) => {
+    const prepare = vi.fn((value: number) => {
       return value.toString();
     });
 
-    const parse = jest.fn((value: string) => {
+    const parse = vi.fn((value: string | null) => {
+      if (value === null) {
+        return 0;
+      }
+
       return parseInt(value, 10);
     });
 

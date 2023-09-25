@@ -1,5 +1,6 @@
-import { useBool } from '../src';
-import { renderHook, act } from '@testing-library/react-hooks';
+import { expect, test, describe } from 'vitest';
+import { useBool } from '../src/useBool';
+import { renderHook, act } from '@testing-library/react';
 
 describe('useBool', () => {
   test('uses false as a default', () => {

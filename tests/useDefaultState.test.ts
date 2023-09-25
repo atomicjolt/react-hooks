@@ -1,4 +1,5 @@
-import { renderHook, act } from '@testing-library/react-hooks';
+import { expect, test, describe } from 'vitest';
+import { renderHook, act } from '@testing-library/react';
 import { useDefaultState } from '../src';
 
 describe('useDefaultState', () => {
