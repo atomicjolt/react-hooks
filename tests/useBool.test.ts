@@ -1,6 +1,6 @@
 import { expect, test, describe } from 'vitest';
-import { useBool } from '../src/useBool';
 import { renderHook, act } from '@testing-library/react';
+import { useBool } from '../src';
 
 describe('useBool', () => {
   test('uses false as a default', () => {
@@ -26,21 +26,15 @@ describe('useBool', () => {
     expect(result.current[0]).toBe(false);
   });
 
-  test('setting to true', () => {
+  test('setting directly', () => {
     const { result } = renderHook(() => useBool());
 
-    const setTrue = result.current[2];
-    act(() => setTrue());
+    const set = result.current[2];
+    act(() => set(true));
 
     expect(result.current[0]).toBe(true);
-  });
 
-  test('setting to false', () => {
-    const { result } = renderHook(() => useBool(true));
-
-    const selfFalse = result.current[3];
-    act(() => selfFalse());
-
+    act(() => set(false));
     expect(result.current[0]).toBe(false);
   });
 });

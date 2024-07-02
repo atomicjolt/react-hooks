@@ -1,6 +1,6 @@
 import { expect, test, describe } from 'vitest';
-import { useValidatedState } from '../src';
 import { renderHook, act } from '@testing-library/react';
+import { useValidatedState } from '../src';
 
 const isEven = (next: number) => {
   if (next % 2 !== 0) {

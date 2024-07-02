@@ -1,6 +1,5 @@
-export type ValueUpdate<S> = S | ((state: S) => S);
+import { StateUpdate } from './types';
 
-export function resolveValue<T>(prev: T, next: ValueUpdate<T>): T {
-  // @ts-ignore
-  return typeof next === 'function' ? next(prev) : next;
+export function resolveValue<T>(prev: T, next: StateUpdate<T>): T {
+  return typeof next === 'function' ? (next as Function)(prev) : next;
 }
