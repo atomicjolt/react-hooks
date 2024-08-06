@@ -1,7 +1,7 @@
 import { useState, useMemo } from 'react';
-import { StateInput } from '../types';
+import { InitialState, StateDispatch } from '../types';
 
-type DefaultReturn<T> = [state: T, setState: (newState: T) => void, revert: () => void];
+type DefaultReturn<T> = [state: T, setState: StateDispatch<T>, revert: () => void];
 
 /** `setState` wrapper to "reset" your state back to a default values
  * @param initialState - The initial state to store
@@ -10,7 +10,7 @@ type DefaultReturn<T> = [state: T, setState: (newState: T) => void, revert: () =
  *  - a function to update the state
  *  - a function to revert the state back to it's initial value
  */
-export function useDefaultState<T>(initialState: StateInput<T>): DefaultReturn<T> {
+export function useDefaultState<T>(initialState: InitialState<T>): DefaultReturn<T> {
   // We cache the initial value of initialState so that this behaves the same
   // as other hooks typically do when you pass a new value
   const defaultState = useMemo(() => typeof initialState === "function" ? (initialState as Function)() : initialState, []);

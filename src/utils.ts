@@ -1,5 +1,5 @@
-import { StateUpdate } from './types';
+import { UpdateStateAction } from './types';
 
-export function resolveValue<T>(prev: T, next: StateUpdate<T>): T {
+export function resolveValue<T>(prev: T, next: UpdateStateAction<T>): T {
   return typeof next === 'function' ? (next as Function)(prev) : next;
 }

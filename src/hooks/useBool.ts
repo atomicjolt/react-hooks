@@ -1,5 +1,5 @@
 import { useCallback, useState } from 'react';
-import { StateInput } from '../types';
+import { InitialState } from '../types';
 
 type UseBooleanReturn = [value: boolean, toggle: () => void, set: (newState: boolean) => void];
 
@@ -16,7 +16,7 @@ type UseBooleanReturn = [value: boolean, toggle: () => void, set: (newState: boo
  *  - a function to toggle the boolean value
  *  - a function to set the boolean value
  */
-export function useBool(intialState: StateInput<boolean> = false): UseBooleanReturn {
+export function useBool(intialState: InitialState<boolean> = false): UseBooleanReturn {
   const [bool, setBool] = useState(intialState);
 
   const toggle = useCallback(() => setBool((val) => !val), []);
