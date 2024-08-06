@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { EffectCallback, useEffect } from 'react';
 
 /** Run `callback` after the initial render of the component
  * @param callback The function to run after the initial render
@@ -10,6 +10,6 @@ import { useEffect, useRef } from 'react';
  *   return <div>My Component</div>;
  * }
  */
-export function useMount(callback: () => void) {
+export function useMount(callback: EffectCallback) {
   useEffect(callback, []);
 }

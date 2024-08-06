@@ -1,6 +1,6 @@
 {
   "name": "@atomicjolt/hooks",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "author": "Sean Collings <sean.collings@atomicjolt.com>",
   "license": "MIT",
   "module": "dist/index.js",

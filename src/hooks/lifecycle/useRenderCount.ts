@@ -10,6 +10,6 @@ import { useRender } from './useRender';
  */
 export function useRenderCount() {
   const countRef = useRef(0);
-  useRender(() => countRef.current++);
+  useRender(() => { countRef.current++ });
   return countRef.current;
 }
